@@ -5,10 +5,7 @@ import com.mdz.angular_spring.service.ProductoService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +24,14 @@ public class ProductoController {
         productos.forEach(producto -> logger.info(producto.toString()));
         return productos;
     }
+
+    @PostMapping("/productos") // http://localhost:8080/api/productos
+    public Producto agregarProducto(@RequestBody Producto producto) {
+        logger.info("--- Agregando nuevo producto ---");
+        logger.info(producto.toString());
+        return this.productoService.guardarProducto(producto);
+    }
+
+
 
 }
