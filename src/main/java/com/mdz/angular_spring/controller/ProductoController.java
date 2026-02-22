@@ -45,8 +45,21 @@ public class ProductoController {
             logger.warn("Producto con ID {} no encontrado", id);
             return ResponseEntity.notFound().build();
         }
-
     }
 
+    @PutMapping("/productos/{id}") // http://localhost:8080/api/productos/1
+    public ResponseEntity<Producto> actualizarProducto(
+            @PathVariable int id,
+            @RequestBody Producto productoRecibido) {
+        logger.info("--- Actualizando producto con ID: {} ---", id);
+        logger.info(productoRecibido.toString());
+        Producto productoActualizar = this.productoService.buscarProductoPorId(id);
+        productoActualizar.setDescripcion(productoRecibido.getDescripcion());
+        productoActualizar.setPrecio(productoRecibido.getPrecio());
+        productoActualizar.setExistencia(productoRecibido.getExistencia());
 
+        productoService.guardarProducto(productoActualizar);
+        logger.info("Producto actualizado: {}", productoActualizar);
+        return ResponseEntity.ok(productoActualizar);
+    }
 }
