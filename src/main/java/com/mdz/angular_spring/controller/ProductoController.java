@@ -5,6 +5,7 @@ import com.mdz.angular_spring.service.ProductoService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,6 +33,20 @@ public class ProductoController {
         return this.productoService.guardarProducto(producto);
     }
 
+    @GetMapping("/productos/{id}") // http://localhost:8080/api/productos/1
+    public ResponseEntity<Producto> obtenerProductoPorId(
+            @PathVariable int id) {
+        logger.info("--- Obteniendo producto por ID: {} ---", id);
+        Producto producto = this.productoService.buscarProductoPorId(id);
+        if (producto != null) {
+            logger.info(producto.toString());
+            return ResponseEntity.ok(producto);
+        } else {
+            logger.warn("Producto con ID {} no encontrado", id);
+            return ResponseEntity.notFound().build();
+        }
+
+    }
 
 
 }
