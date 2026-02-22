@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
@@ -61,5 +62,19 @@ public class ProductoController {
         productoService.guardarProducto(productoActualizar);
         logger.info("Producto actualizado: {}", productoActualizar);
         return ResponseEntity.ok(productoActualizar);
+    }
+
+    @DeleteMapping("/productos/{id}") // http://localhost:8080/api/productos/1
+    public ResponseEntity<Map<String, Boolean>> eliminarProducto(@PathVariable int id) {
+        logger.info("--- Eliminando producto con ID: {} ---", id);
+        Producto producto = this.productoService.buscarProductoPorId(id);
+        if (producto != null) {
+            this.productoService.eliminarProductoPorId(id);
+            logger.info("Producto con ID {} eliminado", id);
+            return ResponseEntity.ok(Map.of("eliminado", Boolean.TRUE));
+        } else {
+            logger.warn("Producto con ID {} no encontrado para eliminación", id);
+            return ResponseEntity.notFound().build();
+        }
     }
 }
