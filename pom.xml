@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.mdz</groupId>
-	<artifactId>angular_spring</artifactId>
+	<artifactId>stockcontrol-springangular</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>angular_spring</name>
 	<description>Angular y Spring - Practica</description>
