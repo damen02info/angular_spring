@@ -11,7 +11,7 @@
 	<groupId>com.mdz</groupId>
 	<artifactId>stockcontrol-springangular</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>angular_spring</name>
+	<name>stockcontrol-springangular</name>
 	<description>Angular y Spring - Practica</description>
 	<url/>
 	<licenses>
