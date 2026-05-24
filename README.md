@@ -78,6 +78,7 @@ Here is how the system looks and operates during execution:
 ```bash
 ./mvnw spring-boot:run
 ```
+
 <img width="817" height="318" alt="image" src="https://github.com/user-attachments/assets/fd15b519-4c50-4044-af42-cd872513e115" />
 
 ---
@@ -93,4 +94,104 @@ Here is how the system looks and operates during execution:
 <img width="1614" height="527" alt="AgregarProducto" src="https://github.com/user-attachments/assets/da3679dc-ba72-4613-a292-55b4a9086773" />
 
 <img width="1439" height="632" alt="PruebasPostman" src="https://github.com/user-attachments/assets/09201cc1-155d-4932-8adb-3c60532afed4" />
+
+---
+---
+
+# Gestión de Stock de Inventario - Explicación del Backend
+
+Este repositorio contiene el backend para una aplicación de práctica de gestión de stock de inventario. El objetivo principal de este proyecto fue construir una API REST estructurada utilizando **Java 21** y **Spring Boot 4.0.3**, conectada a una base de datos **MySQL**, y preparada para dar servicio a un frontend en Angular.
+
+---
+
+## 🛠️ Tecnologías Aplicadas
+
+- **Java 21** y **Spring Boot 4.0.3**: Framework principal para el desarrollo de la API REST.
+- **Spring Data JPA**: Utilizado para el mapeo objeto-relacional (ORM) y la comunicación con la base de datos sin necesidad de escribir consultas SQL manuales.
+- **MySQL**: Base de datos relacional elegida para persistir los datos del inventario.
+- **Lombok**: Integrado para reducir código repetitivo como Getters, Setters y Constructores.
+
+---
+
+## 🏗️ Arquitectura y Funcionamiento
+
+El backend sigue una **arquitectura en capas** estándar para separar claramente las responsabilidades:
+
+```text
+src/main/java/com/mdz/angular_spring/
+├── controller/
+│   └── ProductoController.java      # Capa REST (Gestiona peticiones HTTP)
+├── model/
+│   └── Producto.java                # Capa de Datos (Entidad de Base de Datos)
+├── repository/
+│   └── ProductoRepository.java      # Capa de Acceso a Datos (Consultas JPA)
+├── service/
+│   ├── IProductoService.java        # Capa de Lógica de Negocio (Interfaz)
+│   └── ProductoService.java         # Capa de Lógica de Negocio (Implementación)
+└── AngularSpringApplication.java    # Punto de Entrada de la Aplicación
+```
+
+---
+
+## 🔄 Flujo de Ejecución de los Datos
+
+### 1. Capa Modelo
+
+La clase `Producto.java` define la estructura del producto del inventario (ID, nombre, cantidad en stock, precio, etc.) y la mapea como una tabla en MySQL utilizando anotaciones JPA.
+
+### 2. Capa Repositorio
+
+`ProductoRepository.java` extiende `JpaRepository`, proporcionando automáticamente operaciones CRUD:
+
+- Crear
+- Leer
+- Actualizar
+- Eliminar
+
+Esto evita escribir consultas SQL manualmente.
+
+### 3. Capa de Servicio
+
+La capa de servicio (`IProductoService` y `ProductoService`) aísla la lógica de negocio del controlador. Gestiona cómo se procesan los datos antes de almacenarlos o devolverlos.
+
+### 4. Capa Controlador
+
+`ProductoController.java` expone los endpoints REST como:
+
+```http
+GET /api/productos
+POST /api/productos
+PUT /api/productos/{id}
+DELETE /api/productos/{id}
+```
+
+El controlador recibe las peticiones HTTP desde Angular, invoca la capa de servicio y devuelve respuestas en formato JSON.
+
+---
+
+## 📸 Demostración de la Aplicación
+
+Así es como se ve y opera el sistema durante la ejecución:
+
+### 1. Conexión a la Base de Datos e Inicialización de la API
+
+```bash
+./mvnw spring-boot:run
+```
+
+<img width="817" height="318" alt="image" src="https://github.com/user-attachments/assets/fd15b519-4c50-4044-af42-cd872513e115" />
+
+---
+
+### 2. Conexión con el Frontend / Prueba en Postman
+
+<img width="1551" height="527" alt="Productos" src="https://github.com/user-attachments/assets/dc52af46-dbc2-48fe-a021-4fe957b8384b" />
+
+---
+
+### 3. Operaciones CRUD del Inventario
+
+<img width="1614" height="527" alt="AgregarProducto" src="https://github.com/user-attachments/assets/4fdc432c-5d95-4db6-9487-397485385371" />
+
+<img width="1439" height="632" alt="PruebasPostman" src="https://github.com/user-attachments/assets/444ce7f9-50fe-4fd8-8511-ef65b6d3a136" />
 
