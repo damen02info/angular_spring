@@ -4,7 +4,7 @@ This repository contains the backend for a practice inventory stock application.
 
 ---
 
-## 🛠️ Tech Stack Applied
+## Tech Stack Applied
 
 - **Java 21** & **Spring Boot 4.0.3**: Core framework for the REST API.
 - **Spring Data JPA**: Used for Object-Relational Mapping (ORM) and database communication without writing manual SQL queries.
@@ -13,7 +13,7 @@ This repository contains the backend for a practice inventory stock application.
 
 ---
 
-## 🏗️ Architecture & How It Works
+## Architecture & How It Works
 
 The backend follows a standard **layered architecture** to clearly separate responsibilities:
 
@@ -33,7 +33,7 @@ src/main/java/com/mdz/angular_spring/
 
 ---
 
-## 🔄 Data Flow Execution
+## Data Flow Execution
 
 ### 1. Model Layer
 
@@ -69,7 +69,7 @@ The controller receives HTTP requests from the Angular frontend, invokes the ser
 
 ---
 
-## 📸 Application Demonstration
+## Application Demonstration
 
 Here is how the system looks and operates during execution:
 
@@ -104,7 +104,7 @@ Este repositorio contiene el backend para una aplicación de práctica de gesti�
 
 ---
 
-## 🛠️ Tecnologías Aplicadas
+## Tecnologías Aplicadas
 
 - **Java 21** y **Spring Boot 4.0.3**: Framework principal para el desarrollo de la API REST.
 - **Spring Data JPA**: Utilizado para el mapeo objeto-relacional (ORM) y la comunicación con la base de datos sin necesidad de escribir consultas SQL manuales.
@@ -113,7 +113,7 @@ Este repositorio contiene el backend para una aplicación de práctica de gesti�
 
 ---
 
-## 🏗️ Arquitectura y Funcionamiento
+## Arquitectura y Funcionamiento
 
 El backend sigue una **arquitectura en capas** estándar para separar claramente las responsabilidades:
 
@@ -133,7 +133,7 @@ src/main/java/com/mdz/angular_spring/
 
 ---
 
-## 🔄 Flujo de Ejecución de los Datos
+## Flujo de Ejecución de los Datos
 
 ### 1. Capa Modelo
 
@@ -169,7 +169,7 @@ El controlador recibe las peticiones HTTP desde Angular, invoca la capa de servi
 
 ---
 
-## 📸 Demostración de la Aplicación
+## Demostración de la Aplicación
 
 Así es como se ve y opera el sistema durante la ejecución:
 
